@@ -256,7 +256,9 @@
         linear-gradient(145deg, rgba(22,22,22,0.96), rgba(8,8,8,0.96));
       border: 1px solid rgba(255,255,255,0.18);
       box-shadow: 
-        0 0 0 1px
+        0 0 0 1px rgba(255,255,255,0.06),
+        0 28px 80px rgba(0, 0, 0, 0.55);
+    }
 
     .hero-card::before {
       content: "";
@@ -270,10 +272,7 @@
 
     .hero-image-wrap {
       position: relative;
-      padding: 6px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      padding: 22px;
     }
 
     .hero-image {
@@ -285,10 +284,6 @@
       border-radius: 24px;
       filter: grayscale(100%) contrast(112%) brightness(0.95);
       opacity: 0.98;
-      display: block;
-      margin: 0 auto;
-      transform: scale(1.18);
-      transform-origin: center;
     }
 
     .hero-card-bottom {
@@ -751,3 +746,4 @@
   </footer>
 </body>
 </html>
+
