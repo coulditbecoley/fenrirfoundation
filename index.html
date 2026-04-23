@@ -3,11 +3,57 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Fenrir Foundation</title>
-  <meta name="description" content="Fenrir Foundation is a private management company overseeing diversified strategic operations across multiple sectors." />
-  <link rel="icon" type="image/png" href="favicon.png" />
+
+  <!-- ── Primary SEO ─────────────────────────────────────────────────── -->
+  <title>Fenrir Foundation | Private Management Company</title>
+  <meta name="description" content="Fenrir Foundation is a private management company overseeing diversified strategic operations across capital allocation, real asset oversight, and long-term value creation." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://fenrirfoundation.com/" />
+
+  <!-- ── Open Graph ──────────────────────────────────────────────────── -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://fenrirfoundation.com/" />
+  <meta property="og:title" content="Fenrir Foundation | Private Management Company" />
+  <meta property="og:description" content="A private management company overseeing diversified strategic operations across multiple sectors. Disciplined frameworks, controlled decision-making, and durable long-term thinking." />
+  <meta property="og:image" content="https://fenrirfoundation.com/fenrir-foundation.png" />
+  <meta property="og:site_name" content="Fenrir Foundation" />
+
+  <!-- ── Twitter Card ────────────────────────────────────────────────── -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Fenrir Foundation | Private Management Company" />
+  <meta name="twitter:description" content="A private management company overseeing diversified strategic operations across multiple sectors." />
+  <meta name="twitter:image" content="https://fenrirfoundation.com/fenrir-foundation.png" />
+
+  <!-- ── Security ────────────────────────────────────────────────────── -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; script-src 'self';" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+
+  <!-- ── Favicons ────────────────────────────────────────────────────── -->
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon.png" />
   <link rel="shortcut icon" href="favicon.png" />
-  <link rel="apple-touch-icon" href="favicon.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+
+  <!-- ── Fonts ───────────────────────────────────────────────────────── -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
+
+  <!-- ── Preload critical assets ─────────────────────────────────────── -->
+  <link rel="preload" as="image" href="fenrir-foundation.webp" type="image/webp" />
+
+  <!-- ── Structured Data ─────────────────────────────────────────────── -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Fenrir Foundation",
+    "url": "https://fenrirfoundation.com",
+    "logo": "https://fenrirfoundation.com/apple-touch-icon.png",
+    "description": "Fenrir Foundation is a private management company overseeing diversified strategic operations across multiple sectors.",
+    "sameAs": []
+  }
+  </script>
+
   <style>
     :root {
       --bg: #020202;
@@ -38,7 +84,7 @@
 
     body {
       min-height: 100vh;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       color: var(--text);
       background:
         radial-gradient(circle at 20% 15%, rgba(110, 110, 110, 0.14), transparent 32%),
@@ -70,9 +116,35 @@
       text-decoration: none;
     }
 
+    /* ── Accessibility: visible focus styles ── */
+    a:focus-visible,
+    button:focus-visible {
+      outline: 2px solid rgba(255, 255, 255, 0.7);
+      outline-offset: 4px;
+      border-radius: 4px;
+    }
+
     img {
       max-width: 100%;
       display: block;
+    }
+
+    /* ── Skip navigation link ── */
+    .skip-link {
+      position: absolute;
+      top: -100%;
+      left: 0;
+      padding: 12px 20px;
+      background: #fff;
+      color: #000;
+      font-weight: 700;
+      z-index: 9999;
+      border-radius: 0 0 8px 0;
+      transition: top 0.2s;
+    }
+
+    .skip-link:focus {
+      top: 0;
     }
 
     .container {
@@ -122,6 +194,42 @@
       color: #f1f1f1;
       font-size: 1.3rem;
       font-weight: 700;
+    }
+
+    /* ── Mobile nav toggle button ── */
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 10px;
+      padding: 8px 10px;
+      cursor: pointer;
+      color: var(--silver);
+      flex-direction: column;
+      gap: 5px;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .nav-toggle span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: currentColor;
+      border-radius: 2px;
+      transition: transform 0.25s ease, opacity 0.25s ease;
+    }
+
+    .nav-toggle[aria-expanded="true"] span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    .nav-toggle[aria-expanded="true"] span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .nav-toggle[aria-expanded="true"] span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
     }
 
     .nav-links {
@@ -392,7 +500,7 @@
     }
 
     .panel p {
-      color: #a5a5a5;
+      color: #b0b0b0;
       line-height: 1.85;
       font-size: 0.98rem;
     }
@@ -454,7 +562,7 @@
 
     .legal p,
     .footer p {
-      color: #969696;
+      color: #b0b0b0;
       line-height: 1.85;
     }
 
@@ -468,7 +576,7 @@
       display: flex;
       justify-content: space-between;
       gap: 20px;
-      color: #7f7f7f;
+      color: #9a9a9a;
       font-size: 0.92rem;
     }
 
@@ -494,13 +602,24 @@
       .nav {
         min-height: auto;
         padding: 16px 0;
-        flex-direction: column;
-        align-items: start;
+        flex-wrap: wrap;
+        align-items: center;
+      }
+
+      .nav-toggle {
+        display: flex;
       }
 
       .nav-links {
-        flex-wrap: wrap;
-        gap: 14px 18px;
+        flex-basis: 100%;
+        flex-direction: column;
+        gap: 14px;
+        padding: 14px 0;
+        display: none;
+      }
+
+      .nav-links.is-open {
+        display: flex;
       }
 
       .hero {
@@ -526,14 +645,28 @@
   </style>
 </head>
 <body>
+  <!-- Skip navigation link for keyboard/screen reader users -->
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
   <header class="site-header">
     <div class="container nav">
       <a href="#top" class="brand" aria-label="Fenrir Foundation home">
-        <span class="brand-mark">+</span>
+        <span class="brand-mark" aria-hidden="true">+</span>
         <span>Fenrir Foundation</span>
       </a>
 
-      <nav class="nav-links" aria-label="Primary">
+      <button
+        class="nav-toggle"
+        aria-expanded="false"
+        aria-controls="primary-nav"
+        aria-label="Toggle navigation menu"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav id="primary-nav" class="nav-links" aria-label="Primary navigation">
         <a href="#about">About</a>
         <a href="#operations">Operations</a>
         <a href="#philosophy">Philosophy</a>
@@ -542,8 +675,8 @@
     </div>
   </header>
 
-  <main id="top">
-    <section class="hero">
+  <main id="main-content">
+    <section class="hero" id="top" aria-label="Hero">
       <div class="container hero-grid">
         <div>
           <div class="eyebrow">Private Management Company</div>
@@ -561,14 +694,20 @@
         </div>
 
         <div class="hero-visual">
-          <div class="hero-orb"></div>
+          <div class="hero-orb" aria-hidden="true"></div>
           <div class="hero-card">
             <div class="hero-image-wrap">
-              <img
-                class="hero-image"
-                src="fenrir-foundation.png"
-                alt="Fenrir wolf mark"
-              />
+              <picture>
+                <source srcset="fenrir-foundation.webp" type="image/webp" />
+                <img
+                  class="hero-image"
+                  src="fenrir-foundation.png"
+                  alt="Fenrir Foundation wolf mark — the firm's visual identity"
+                  width="900"
+                  height="600"
+                  loading="eager"
+                />
+              </picture>
             </div>
             <div class="hero-card-bottom">
               <div>
@@ -577,17 +716,17 @@
                   A restrained institutional identity built around discipline, durability, and informed control.
                 </p>
               </div>
-              <div class="hero-sigil">+</div>
+              <div class="hero-sigil" aria-hidden="true">+</div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section" id="about">
+    <section class="section" id="about" aria-labelledby="about-heading">
       <div class="container">
         <div class="section-heading">
-          <h2>About the Firm</h2>
+          <h2 id="about-heading">About the Firm</h2>
           <p>
             The website is designed as an informational profile. It does not advertise public participation, solicit investors, or promote any single asset class. Its purpose is to communicate the identity, scope, and operating posture of the company.
           </p>
@@ -595,7 +734,7 @@
 
         <div class="grid-3">
           <article class="panel">
-            <div class="panel-index">01</div>
+            <div class="panel-index" aria-hidden="true">01</div>
             <h3>Purpose</h3>
             <p>
               Fenrir Foundation was established to oversee and coordinate diversified strategic activity through a disciplined management framework focused on continuity, control, and long-range value creation.
@@ -603,7 +742,7 @@
           </article>
 
           <article class="panel">
-            <div class="panel-index">02</div>
+            <div class="panel-index" aria-hidden="true">02</div>
             <h3>Posture</h3>
             <p>
               The firm operates with restraint. Decisions are structured, exposure is considered deliberately, and operational movement is guided by process rather than reaction.
@@ -611,7 +750,7 @@
           </article>
 
           <article class="panel">
-            <div class="panel-index">03</div>
+            <div class="panel-index" aria-hidden="true">03</div>
             <h3>Identity</h3>
             <p>
               The brand language is intentionally dark, minimal, and controlled, reflecting a private company built around measured execution rather than public-facing promotion.
@@ -621,10 +760,10 @@
       </div>
     </section>
 
-    <section class="section" id="operations">
+    <section class="section" id="operations" aria-labelledby="operations-heading">
       <div class="container">
         <div class="section-heading">
-          <h2>Scope of Operations</h2>
+          <h2 id="operations-heading">Scope of Operations</h2>
           <p>
             The company maintains a broad operating mandate. Rather than centering on one market segment, the firm may oversee strategic activity across multiple categories where disciplined management and long-term structure are appropriate.
           </p>
@@ -633,11 +772,11 @@
         <div class="split">
           <article class="panel statement">
             <div>
-              <div class="panel-index">Operating View</div>
+              <div class="panel-index" aria-hidden="true">Operating View</div>
               <blockquote>
                 The objective is not breadth for its own sake, but informed oversight across areas where structure, patience, and control matter.
               </blockquote>
-              <div class="line"></div>
+              <div class="line" aria-hidden="true"></div>
               <p>
                 This framework allows the company to remain adaptable while preserving a consistent internal standard for how opportunities are evaluated and managed.
               </p>
@@ -645,7 +784,7 @@
           </article>
 
           <article class="panel">
-            <div class="panel-index">Illustrative Areas</div>
+            <div class="panel-index" aria-hidden="true">Illustrative Areas</div>
             <div class="list">
               <div class="list-item">
                 <span>Strategic Capital Allocation</span>
@@ -673,18 +812,18 @@
       </div>
     </section>
 
-    <section class="section" id="philosophy">
+    <section class="section" id="philosophy" aria-labelledby="philosophy-heading">
       <div class="container">
         <div class="section-heading">
-          <h2>Operating Philosophy</h2>
+          <h2 id="philosophy-heading">Operating Philosophy</h2>
           <p>
-            The firm’s posture is defined less by visibility and more by internal standards. Every operating principle is intended to reinforce durability, discipline, and decision quality.
+            The firm's posture is defined less by visibility and more by internal standards. Every operating principle is intended to reinforce durability, discipline, and decision quality.
           </p>
         </div>
 
         <div class="grid-3">
           <article class="panel">
-            <div class="panel-index">I</div>
+            <div class="panel-index" aria-hidden="true">I</div>
             <h3>Discipline Before Expansion</h3>
             <p>
               Growth is not pursued at the expense of structure. Sustainable progress begins with coherent internal systems, operational clarity, and control over pace.
@@ -692,7 +831,7 @@
           </article>
 
           <article class="panel">
-            <div class="panel-index">II</div>
+            <div class="panel-index" aria-hidden="true">II</div>
             <h3>Risk Before Motion</h3>
             <p>
               The firm prioritizes understanding downside, friction, and operational exposure before taking action. Preservation of optionality remains central.
@@ -700,7 +839,7 @@
           </article>
 
           <article class="panel">
-            <div class="panel-index">III</div>
+            <div class="panel-index" aria-hidden="true">III</div>
             <h3>Structure Over Noise</h3>
             <p>
               Decisions are made within defined frameworks rather than short-term pressure. Time horizon, quality, and repeatability outweigh impulsive movement.
@@ -710,10 +849,10 @@
       </div>
     </section>
 
-    <section class="section" id="disclosure">
+    <section class="section" id="disclosure" aria-labelledby="disclosure-heading">
       <div class="container">
         <div class="section-heading">
-          <h2>Disclosure</h2>
+          <h2 id="disclosure-heading">Disclosure</h2>
           <p>
             This website is intended solely to provide general informational material regarding the company and its operating profile.
           </p>
@@ -721,16 +860,16 @@
 
         <div class="legal">
           <article class="panel">
-            <div class="panel-index">Informational Use</div>
+            <div class="panel-index" aria-hidden="true">Informational Use</div>
             <p>
               Nothing on this website constitutes an offer to sell, a solicitation of an offer to buy, investment advice, legal advice, or a recommendation regarding any security, fund, real estate interest, or other financial or commercial arrangement.
             </p>
           </article>
 
           <article class="panel">
-            <div class="panel-index">No Public Solicitation</div>
+            <div class="panel-index" aria-hidden="true">No Public Solicitation</div>
             <p>
-              Fenrir Foundation does not use this website to publicly advertise participation opportunities. References to areas of operation are illustrative of the company’s general scope and internal orientation only.
+              Fenrir Foundation does not use this website to publicly advertise participation opportunities. References to areas of operation are illustrative of the company's general scope and internal orientation only.
             </p>
           </article>
         </div>
@@ -744,6 +883,20 @@
       <p>Private company profile · Informational use only</p>
     </div>
   </footer>
+
+  <!-- Mobile navigation toggle -->
+  <script>
+    (function () {
+      var btn = document.querySelector('.nav-toggle');
+      var nav = document.getElementById('primary-nav');
+      if (btn && nav) {
+        btn.addEventListener('click', function () {
+          var expanded = btn.getAttribute('aria-expanded') === 'true';
+          btn.setAttribute('aria-expanded', String(!expanded));
+          nav.classList.toggle('is-open', !expanded);
+        });
+      }
+    })();
+  </script>
 </body>
 </html>
-
