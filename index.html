@@ -804,9 +804,29 @@
         width: calc(100% - 32px);
       }
 
-      /* Hide hero image card on very small screens to reduce scroll */
+      /* Hero image: show but constrain nicely */
       .hero-visual {
-        display: none;
+        display: flex;
+        max-width: 100%;
+        margin: 0 auto;
+      }
+
+      .hero-card {
+        width: 100%;
+        max-width: 420px;
+        margin: 0 auto;
+      }
+
+      .hero-image {
+        aspect-ratio: 4 / 3;
+      }
+
+      .hero-image-wrap {
+        padding: 14px;
+      }
+
+      .hero-card-bottom {
+        padding: 0 18px 18px;
       }
 
       /* Larger hero text on small screens */
