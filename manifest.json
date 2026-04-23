@@ -1,0 +1,24 @@
+{
+  "name": "Fenrir Foundation",
+  "short_name": "Fenrir",
+  "description": "Fenrir Foundation is a private management company overseeing diversified strategic operations across multiple sectors.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#020202",
+  "theme_color": "#020202",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "favicon.png",
+      "sizes": "32x32",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

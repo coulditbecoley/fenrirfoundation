@@ -16,6 +16,9 @@
   <meta property="og:title" content="Fenrir Foundation | Private Management Company" />
   <meta property="og:description" content="A private management company overseeing diversified strategic operations across multiple sectors. Disciplined frameworks, controlled decision-making, and durable long-term thinking." />
   <meta property="og:image" content="https://fenrirfoundation.com/fenrir-foundation.png" />
+  <meta property="og:image:width" content="900" />
+  <meta property="og:image:height" content="600" />
+  <meta property="og:image:type" content="image/png" />
   <meta property="og:site_name" content="Fenrir Foundation" />
 
   <!-- ── Twitter Card ────────────────────────────────────────────────── -->
@@ -27,6 +30,14 @@
   <!-- ── Security ────────────────────────────────────────────────────── -->
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; script-src 'self' 'unsafe-inline';" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
+
+  <!-- ── PWA Manifest ──────────────────────────────────────────────── -->
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#020202" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Fenrir" />
 
   <!-- ── Favicons ────────────────────────────────────────────────────── -->
   <link rel="icon" type="image/png" sizes="32x32" href="favicon.png" />
@@ -903,12 +914,77 @@
     }
 
     /* ════════════════════════════════════════════════════════════════════
+       SCROLL MARGIN — offset sections below sticky header
+    ════════════════════════════════════════════════════════════════════ */
+    #top,
+    #about,
+    #operations,
+    #philosophy,
+    #disclosure {
+      scroll-margin-top: 80px;
+    }
+
+    @media (max-width: 760px) {
+      #top,
+      #about,
+      #operations,
+      #philosophy,
+      #disclosure {
+        scroll-margin-top: 64px;
+      }
+    }
+
+    /* ════════════════════════════════════════════════════════════════════
+       ENTRANCE ANIMATIONS
+    ════════════════════════════════════════════════════════════════════ */
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(22px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    /* Hero text block */
+    .hero-grid > div:first-child {
+      animation: fadeUp 0.75s cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+
+    /* Hero visual card */
+    .hero-visual {
+      animation: fadeUp 0.75s 0.15s cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+
+    /* Section headings */
+    .section-heading {
+      animation: fadeUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 40%;
+    }
+
+    /* Panels stagger in using view-driven animation */
+    .panel {
+      animation: fadeUp 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 35%;
+    }
+
+    /* ════════════════════════════════════════════════════════════════════
        REDUCED MOTION
     ════════════════════════════════════════════════════════════════════ */
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
       *, *::before, *::after {
         animation-duration: 0.01ms !important;
+        animation-delay: 0.01ms !important;
         transition-duration: 0.01ms !important;
       }
     }
